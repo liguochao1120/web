@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>圆角边框CSS3</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+
+        div:first-child {
+            border-radius: 144px;  /*使用伪类选择器 设置 为144px，为一个圆 */
+        }
+
+        div:nth-child(2) {
+            border-radius: 50%;
+        }
+
+        div:nth-child(3) {
+            border-radius: 30px;
+        }
+
+        div:nth-child(4) {
+            border-radius: 30px;
+        }
+
+        div:nth-child(5) {
+            border-radius: 30px;
+        }
+        input{
+            width: 100px;
+            height: 100px;
+            border: 1px solid blue;
+            text-decoration: none;
+            color: #fff;
+            background-color: blue;
+            border-radius: 50%;
+        }
+        input:hover{
+            background-color:cadetblue;
+        }
+    </style>
+</head>
+
+<body>
+    
+
+    <div></div>
+    <div></div>
+    <br /> 
+    <input type="submit" alt="提交" value="提交"/>
+
+    <h2>从今以后，我们的世界不只有矩形。radius半径(距离)</h2>
+    <h3>语法格式:border-radius:左上角 右上角 右下角 左下角</h3>
+    border-raidus：50%; 为四个角 <br /><!--为四个角-->
+    border-radius：value  ;一个值  则为四个角<br /><!--左一个值  则为四个角-->
+     border-radius： value1(10px)  value2(20px)  ;<br /><!--两个值 则代表 左上角和右下角为10px, 右上角和左下角为20px 对角线<br /> -->
+    border-radius: 10px  40px 80px; <br /><!--左上角10px 右上角和左下角40px  右下角80px-->
+    border-radius:10px 40px 80px 100px  <br /><!--左上角10px 右上角40px 左下角80px 右下角100px-->
+
+</body>
+
+</html>

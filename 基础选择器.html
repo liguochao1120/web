@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>四大基础选择器</title>
+    <style>
+        .shiren {
+            color: red;
+        }
+
+        .heihei {
+            color: pink;
+        }
+
+        .G-size {
+            font-size: 35px;
+            color: blue;
+            font-weight: bold;
+        }
+
+        .o1-color {
+            color: brown;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .o2-color {
+            color: orange;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .g-color {
+            color: blue;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .l-color {
+            color: green;
+            font-size: 25px;
+            font-weight: bold;
+
+        }
+
+        .e-color {
+            color: brown;
+            font-size: 25px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        .font-20 {
+            font-size: 40px;
+        }
+
+        .font-16 {
+            font-size: 16px;
+        }
+
+        .c-red {
+            color: red;
+        }
+
+        #red {
+            color: red;
+        }
+
+        #font-50 {
+            font-size: 50px;
+        }
+
+        h1 {
+            color: blueviolet;
+        }
+
+        /* * {
+            color: purple;
+        } */
+    </style>
+</head>
+
+<body>
+    <h1>标签选择器（元素选择器） 标签名称</h1>
+    <hr />
+    <h3>类选择器 .</h3>
+    <div class="shiren">李白</div>
+    <div class="heihei">李黑</div>
+    <div>李红</div>
+    <hr />
+    <h3>例：Google</h3>
+    <span class="G-size">G</span>
+    <span class="o1-color">o</span>
+    <span class="o2-color">o</span>
+    <span class="g-color">g</span>
+    <span class="l-color">l</span>
+    <span class="e-color">e</span>
+
+    <hr />
+    <h3>多类名选择器</h3>
+    <div class="font-20 c-red">赵信</div>
+    <div class="font-20">德玛</div>
+    <div class="font-16">赏金猎人</div>
+    <div class="font-16 c-red">石头人</div>
+    <hr />
+    <h3>ID选择器 #</h3>
+    <div id="red">小鱼人</div>
+    <div id="font-50">火女</div>
+    <div>龙王</div>
+
+    <hr />
+    <h3>类选择器和ID选择器的区别：</h3>
+    类选择器可以多次重复使用(类似于人的姓名)而id选择器只能使用一次（类似于人的身份证号码）
+    <hr />
+    <h3>通配符选择器 *</h3>
+    <h1>永远不晓得最懂你的人</h1>
+    <p>永远不晓得最懂你的人</p>
+    <div>永远不晓得最懂你的人</div>
+    <hr />
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>品牌列表案例</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    添加品牌
+                </h3>
+            </div>
+
+            <div class="panel-body form-inline">
+                <label>
+                        Id:
+                        <input type="text" class="form-control" v-model="id" :key="id">
+                    </label>
+                <!-- <label> -->
+                <!--  @keyup.enter 按键修饰符-->
+                Name:
+                <input type="text" class="form-control" v-model="name" :key="name" @keyup.enter='add'>
+                <!-- </label> -->
+                <!-- add也可以这样写 add()带括号表示可以传参 -->
+                <input type="button" value="添加" class="btn btn-primary" @click="add">
+                <label>
+                    <!-- Vue中的指令 都 以 v-开头   v-focus为自定义指令 -->
+                    搜索名称关键字：
+                    <input type="text" class="form-control" v-model="keywords" v-focus>
+                  </label>
+            </div>
+        </div>
+
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Ctime</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in search(keywords)" :key="item.id">
+                    <td>{{item.id}}</td>
+                    <td v-text="item.name"></td>
+                    <td>{{item.ctime | dateFormat('yyyy-mm-dd')}}</td>
+                    <td><a href="#" @click.prevent="del(item.id)">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="app2">
+        <h3 v-color="pink">{{dt |dateFormat}}</h3>
+    </div>
+
+    <script>
+        //定义一个全局日期过滤器
+        Vue.filter('dateFormat', function(dateStr, pattern = '') {
+            var dt = new Date(dateStr);
+            var y = dt.getFullYear();
+            var m = (dt.getMonth() + 1).toString().padStart(2, '0');
+            var d = dt.getDate().toString().padStart(2, '0');
+            // return y + '-' + m + '-' + d;
+            //使用占位符
+
+            if (pattern && pattern.toLowerCase === 'yyyy-mm-dd') {
+                return `${y}-${m}-${d}`;
+            } else {
+                var hh = dt.getHours().toString().padStart(2, '0');
+                var mm = dt.getMinutes().toString().padStart(2, '0');
+                var ss = dt.getSeconds().toString().padStart(2, '0');
+                return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+            }
+        });
+
+        //自定义全局按钮修饰符，其它修饰符同等 
+        Vue.config.keyCodes.f2 = 113;
+
+
+        //使用Vue.directive() 定义全局的指令, v-focus
+        //其中,参数1:指令的名称,注意,在定义的时候,指令的名称前面,不需要加 v- 前缀
+        //但是,在调用的时候,必须 在指令名称前加 v- 前缀来进行调用 
+        //参数2: 是一个对象, 这个对象身上，有一些指令相关的函数,这些函数可以在特定的阶段,执行相关的操作
+        Vue.directive('focus', {
+            bind: function(el) { //每当指令绑定到元素上的时候,会立即执行这个bind函数,只会执行一次
+                //注意:在每个函数中,第一个参数永远是 el,表示,被绑定了指令的哪元素,这个el参数,是一个原生的js对象
+                // 在元素 刚绑定了指令的时候,还没有插入到 DOM中去,这个时候 调用focus方法是没有作用的
+                //因为 一个元素,只有插入到 DOM之后,才能获取焦点
+                // el.focus();
+            },
+            inserted: function(el) { //inserted表示元素插入到 DOM中的时候,会执行inserted函数,只执行一次
+                el.focus();
+
+            },
+            updated: function() { //当VNode更新的时候,会执行updated,可能会触发多次
+
+            },
+        });
+
+        //自定义一个 设置字体颜色的 指令
+        Vue.directive('color', {
+            //样式,只要通过指令绑定给了元素,不管这个元素有没有被插入到 页面去,这个元素肯定有了一个内联样式
+            //将来元素肯定会显示到页面中,这时候,浏览器的渲染引擎必然会解析样式,应用给这个元素
+            bind: function(el, binding) { //每当指令绑定到元素上的时候,会立即执行这个bind函数,只会执行一次
+                el.style.color = binding;
+            },
+            inserted: function(el) { //inserted表示元素插入到 DOM中的时候,会执行inserted函数,只执行一次
+                // el.focus();
+
+            },
+            updated: function() { //当VNode更新的时候,会执行updated,可能会触发多次
+
+            },
+        });
+
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                id: '',
+                name: '',
+                keywords: '',
+                list: [{
+                    id: 1,
+                    name: '奔驰',
+                    ctime: new Date()
+                }, {
+                    id: 2,
+                    name: '宝马',
+                    ctime: new Date()
+                }, {
+                    id: 3,
+                    name: '奥迪',
+                    ctime: new Date()
+                }]
+            },
+            methods: {
+                add() {
+                    //unshift与push同为列表集合的添加方法,前者从前加后者从后加
+                    this.list.unshift({
+                        id: this.id,
+                        name: this.name,
+                        ctime: new Date()
+                    });
+                    this.id = this.name = "";
+                },
+                del(id) {
+                    //分析: 1，如果根据Id,找到要删除这一项的索引
+                    //2,如果找到 索引了,直接调用数组的splice方法
+                    //方式一:
+                    /*    this.list.some((item, i) => {
+                           if (item.id == id) {
+                               this.list.splice(i, 1);
+                               //在数组的some方法中,如果return false,就会立即终止这个数组的后续循环
+                               return true;
+                           }
+                       }) */
+
+                    //方式二: 查找索引
+                    var index = this.list.findIndex(item => {
+                        if (item.id == id) {
+                            return true;
+                        }
+                    })
+                    this.list.splice(index, 1);
+                },
+                search(keywords) { //根据关键字,进行数据搜索
+                    /*  var newList = [];
+                     this.list.forEach(item => {
+                         if (item.name.indexOf(keywords) != -1) {
+                             newList.push(item);
+                         }
+                     })
+                     return newList; */
+
+                    /* 注意: forEach some filter findIndex这些都属于数组的新方法 */
+                    /* 都会对数组的每一项,进行遍历,执行相关的操作 */
+                    return this.list.filter(item => {
+                        // if(item.name.indexOf(keywords))
+
+                        // 注意:ES6中,为字符串提供 了一个新方法,叫做 String.prototype.includes("要包含的字符串")
+                        //如果包含则返回 true 否则返回false
+                        if (item.name.includes(keywords)) {
+                            return item;
+                        }
+                    })
+                },
+
+            },
+        });
+
+        var vm2 = new Vue({
+            el: '#app2',
+            data: {
+                dt: new Date(),
+            },
+            methods: {},
+            filters: { //定义私有过滤器,过滤器有两个条件,【过滤器名称和处理函数】
+                //过滤器调用的时候,采用的是就近原则,如果私有的和全局的过滤器名称一致的话,这时候,优先调用私有过滤器
+                dateFormat: function(dateStr, pattern = '') {
+                    var dt = new Date(dateStr);
+                    var y = dt.getFullYear();
+                    //ES6中的方法 padStart(要得到的结果长度,'用于填充的数据') 从前面填充
+                    //padEnd(要得到的结果长度,'用于填充的数据') 从后面填充
+                    var m = (dt.getMonth() + 1).toString().padStart(2, '0');
+                    var d = dt.getDate().toString().padStart(2, '0')
+
+                    if (pattern && pattern.toLowerCase === 'yyyy-mm-dd') {
+                        return `${y}-${m}-${d}`
+                    } else {
+                        var hh = dt.getHours().toString().padStart(2, '0')
+                        var mm = dt.getMinutes().toString().padStart(2, '0')
+                        var ss = dt.getSeconds().toString().padStart(2, '0')
+                        return `${y}-${m}-${d} ${hh}:${mm}:${ss}~~~`
+                    }
+                }
+
+            }
+        });
+    </script>
+</body>
+
+<!-- 过渡器调用时候的格式 {{name | 过滤器名称}}-->
+<!-- 过滤器的定义语法
+        Vue.filter('过滤器的名称',function(){});
+        过滤器中的function,第一个参数已经定义死了,永远都是 过滤器  管道符前面 传递过来的参数
+         Vue.filter("过滤器的名称", function(data) {
+             return data + '123';
+         }) -->
+
+</html>

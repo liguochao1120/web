@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        div{
+            height: 209px;
+            width: 338px;
+            margin: 0px auto;
+            position: relative;
+        }
+        /* div:first-child{
+            height: 300px;
+            width: 300px;
+            background:url("images/1.png") no-repeat;
+           
+        }
+        div:first-child:hover{
+            border: 5px solid  rgba(255, 255, 255, .3);
+           padding: 5px;
+        } */
+        div:hover::before{
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: block;
+            border:10px solid rgba(255, 255, 255, .4);
+            left: 0;
+            top: 0;
+            box-sizing: border-box;
+        }
+        span{
+            background: blue;
+            display: block;
+            height: 200px;
+            width: 200px;
+            margin: 0px auto;
+           
+        }
+        span:hover{
+            border: 2px solid yellow;
+        }
+       
+    </style>
+</head>
+<body>
+  <div></div>
+  <div>
+      <img src="images/shuiguo_03.png" alt="">
+  </div>
+  <span></span>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue的基础代码</title>
+    <!--1 导入vue的包 -->
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<!-- 将来new 的vue实例,会控制这个元素中的所有内容 -->
+<div id="app">
+    <p>{{msg}}</p>
+</div>
+
+<body>
+    <!-- 2 创建一个vue实例 -->
+    <script>
+        var vm = new vue({
+            el: '#app', //表示,当前我们new的这个实例,要控制页面上的哪个区域
+            data: { //data属性中,存放的是 el 中要用到的数据
+                msg: '欢迎学习vue' //通过vue提供的指令,很方便的把数据渲染到页面上
+            }
+        });
+    </script>
+</body>
+
+</html>

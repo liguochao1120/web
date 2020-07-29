@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单</title>
+</head>
+
+<body>
+    <h1 align="center">form表单</h1>
+    三个域：
+    <ol>
+        <li>文件域 textarea 留言的</li>
+        <li>文本域 file 上传文件</li>
+        <li>表单域 form 收集表单信息并且提交</li>
+    </ol>
+    <h2>表单域</h2>
+
+    <form action="test.php" method="post" name="login">
+
+        <p>用户名:<input type="text" name="username" id="" /></p>
+        <p>密&nbsp;码:<input type="password" name="pwd" id="" /></p>
+        <input type="submit" value="提交" />
+        <input type="reset" value="重置" />
+    </form>
+
+    <form action="test.php" method="post" name="register">
+
+        <p>用户名:<input type="text" name="username" id="" /></p>
+        <p>密&nbsp;码:<input type="password" name="pwd" id="" /></p>
+        <input type="submit" value="提交" />
+        <input type="reset" value="重置" />
+    </form>
+</body>
+
+</html>

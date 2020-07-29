@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>只能输入数字文本框</title>
+</head>
+<body>
+    <input type="text" id="txt">
+</body>
+<script>
+    var txt=document.getElementById('txt');
+    //鼠标按下时的事件
+    txt.onkeydown=function(e){
+        //鼠标按下 keyDown 鼠标抬起 keyUp  区别:keyDown的时候我们所按的键还没有落入文本框
+        //keyUp 鼠标抬起的时候按的键已经落入文本框
+        //判断当前用户按下的键是否是数字
+        e=e||window.event;
+        //如果e.keyCode的值在48-57之间是数字
+        //按下后退键 8，删除一个字符
+        if((e.keyCode<47||e.keyCode>58)&&e.keyCode!=8
+        ){
+            //非数字，取消默认行为 
+            e.preventDefault();
+            //return false;
+        }
+    }
+</script>
+</html>

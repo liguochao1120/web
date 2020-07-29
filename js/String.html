@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var msg='我是一个\"五年\"的程\'序\'员';
+        console.log(msg);
+        var age=10;
+        var msg='abc';
+        console.log(typeof age);
+        var result=typeof msg;
+        console.log(typeof result);
+        var num=3;
+        console.log(Boolean(num));
+        //矩形
+        var str='';
+        for(var i=0;i<10;i++){
+        for(var j=0;j<10;j++){
+            str+='* ';
+        }
+        str+='\n';
+    }
+        console.log(str);
+
+        //倒三角形
+        var strs='';
+        for(var m=0;m<10;m++){
+            for(var n=m;n<10;n++){
+                strs+="*";
+            }
+            strs+='\n';
+        }
+        console.log(strs);
+
+            var strs='';
+            for(var i=0;i<10;i++){
+                for(var j=10-i;j>0;j--){
+                    strs+='*';
+                }
+                strs+='\n';
+            }
+            console.log(strs);
+            //99乘法表
+             var str='';
+             for(var i=1;i<=9;i++){
+
+                for(var j=i;j<=9;j++){
+                    str+=i+"*"+j+"="+i*j+'\t';
+                }
+                str+='\n';
+             }
+             console.log(str);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue中样式-class</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        .red {
+            color: red;
+        }
+        
+        .thin {
+            font-weight: 200;
+        }
+        
+        .italic {
+            font-style: italic;
+        }
+        
+        .active {
+            letter-spacing: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <h1 class="red thin">这是一个很大的H1,很大很大</h1> -->
+
+        <!-- 第一种使用方式,直接传递一个数组,注意:这里的class 需要使用 v-bind做数据绑定-->
+        <!-- <h1 :class="['red','thin']" @click='h1click'>这是一个很大的H1,很大很大</h1> -->
+
+        <!-- 在数组中使用三元表达式  flag-->
+        <!-- <h1 :class="['red','thin',flag?'active':'']" @click='h1click'>这是一个很大的H1,很大很大</h1> -->
+
+        <!-- 在数组中使用对象来代替三元表达式,提高代码的可读性 -->
+        <!-- <h1 :class="['red','thin',{'active':flag}]" @click='h1click'>这是一个很大的H1,很大很大</h1> -->
+
+        <h1 :class="{red:flag,this:flag,italic:flag,active:flag}" @click='h1click'>这是一个很大的H1,很大很大</h1>
+
+
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false,
+            },
+            methods: {
+                h1click() {
+                    this.flag = true;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

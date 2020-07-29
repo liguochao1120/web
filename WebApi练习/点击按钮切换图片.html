@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>点击按钮切换图片</title>
+</head>
+<body>
+    <input type="button" value="点我" id="btn">
+    <img src="images/a.jpg" alt="" id="mv" width="400" height="400">
+
+    <script>
+        //     //先获取到元素
+           var btn= document.getElementById('btn');
+           var mv=document.getElementById('mv');
+        //    //通过设置元素的onClick方法设置点击事件
+            var flag=1;
+           btn.onclick= function (){
+             if(flag === 1){
+                mv.src='images/b.jpg';
+                flag=2;
+             }else if(flag===2){
+                mv.src='images/a.jpg';
+                flag=1;
+             }
+           }
+
+
+    </script>
+</body>
+</html>

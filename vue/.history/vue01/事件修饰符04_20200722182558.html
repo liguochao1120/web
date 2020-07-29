@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件修饰符</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        .inner {
+            height: 150px;
+            background-color: darkcyan;
+        }
+        
+        .inner>input {
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+
+        <div class="inner" @click.capture="divHandler">
+            <!-- 使用.stop附上冒泡 
+                <input type="button" value="chuo他" @click.stop="btnHandler">
+             -->
+            <input type="button" value="chuo他" @click="btnHandler">
+        </div>
+        <!-- 使用.prevent阻止默认跳转行为 -->
+        <!-- <a href="http://www.baidu.com" @click.prevent="linkclick">跳转百度</a> -->
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                divHandler() {
+                    console.log("divHandler");
+                },
+                btnHandler() {
+                    console.log("btnHandler");
+                },
+                linkclick() {
+                    console.log("阻止了默认跳转的行为");
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

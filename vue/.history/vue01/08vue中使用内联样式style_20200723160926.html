@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue中使用内联样式style</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+
+    </style>
+</head>
+<div id="app">
+    <!-- 对象就是无序键值对的集合  属性名中若带有-线或者_线时,属性名要使用引号包起来-->
+    <!-- <h1 :style="styleobj1">这是一个h1</h1> -->
+
+    <!-- 使用数组引用多个样式 -->
+    <h1 :style="[styleobj1,styleobj2]">这是一个h1</h1>
+
+
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            styleobj1: {
+                color: 'red',
+                'font-weight': 200
+            },
+            styleobj2: {
+                'font-style': 'italic',
+            }
+        },
+        methods: {},
+    });
+</script>
+
+<body>
+
+</body>
+
+</html>

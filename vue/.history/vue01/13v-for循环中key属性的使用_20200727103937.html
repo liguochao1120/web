@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13v-for循环中key属性的使用</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+
+    </style>
+</head>
+<div id="app">
+    id:<input type="text"> name:
+    <input type="text">
+    <input type="bottom" name="添加">
+    <p v-for="item in list">
+        <input type="checkbox">----{{item.id}}----{{item.name}}</p>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            list: [{
+                id: 1,
+                name: "小明"
+            }, {
+                id: 2,
+                name: "小花"
+            }, {
+                id: 3,
+                name: "小王"
+            }]
+        },
+        methods: {},
+    });
+</script>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10v-for循环对象数组</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+
+    </style>
+</head>
+<div id="app">
+    <p v-for="user in list">---id:{{user.id}}--------名称:{{user.name}}</p>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            list: [{
+                id: 1,
+                name: "小李"
+            }, {
+                id: 2,
+                name: "小王"
+            }, {
+                id: 3,
+                name: "小四"
+            }],
+        },
+        methods: {},
+    });
+</script>
+
+<body>
+
+</body>
+
+</html>

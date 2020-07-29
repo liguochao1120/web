@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>setTimeOut删除提示</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 40px;
+            background-color: blue;
+            text-align: center;
+            line-height: 40px;
+            display: none;
+            transition: all 0.3s;
+        }
+    </style>
+    <script>
+     onload=function(){
+         var del=document.getElementById('delete');
+         del.onclick=function(){
+            var box= document.getElementById('box');
+            box.style.display='block';
+            setTimeout(function(){
+                box.style.display='none';
+            },3000);
+         }
+     }
+    </script>
+</head>
+<body>
+    <input type="button" value="删除" id="delete">
+    <div id="box">删除成功</div>
+</body>
+</html>

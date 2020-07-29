@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择水果</title>
+    <style>
+     select {
+            width:200px;
+            height: 200px;
+            background-color: #33cccc;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <select id="all" multiple='multiple'>
+        <option>苹果</option>
+        <option>橘子</option>
+        <option>梨</option>
+        <option>西瓜</option>
+        <option>水蜜桃</option>
+    </select>
+    
+   
+    <input type="button" value=">>" id="btn1">
+    <input type="button" value="<<" id="btn2">
+    <input type="button" value=">" id="btn3">
+    <input type="button" value="<" id="btn4">
+
+    <select  id="select" multiple='multiple'>
+
+    </select>
+
+    <script src="common.js"></script>
+    <script>
+       var all= my$('all');
+       var select=my$('select');
+       //1,全部选择 过去
+
+         my$('btn1').onclick = function () {
+     
+            var len = all.children.length;
+             for (var i = 0; i < len; i++) {
+                var option = all.children[0];
+                select.appendChild(option);
+                option.selected=false;
+         }
+    }
+
+            //2 全部 回去
+            my$('btn2').onclick=function(){
+                var len =select.children.length;
+                for(var j=0;j<len;j++){
+                    var option=select.children[0];
+                    all.appendChild(option);
+                    option.selected=false;
+                }
+            }
+
+            //3,移动选中的水果
+            my$('btn3').onclick=function(){
+                var array=[];
+                for(var i=0;i<all.children.length;i++){
+                        var option=all.children[i];
+                        if(option.selected){
+                            array.push(option);
+                        }
+                }
+                for(var j=0;j<array.length;j++){
+                    var option=array[j];
+                    select.appendChild(option);
+                    option.selected=false;
+                }
+            }
+
+            //4,移回选中的水果
+            my$('btn4').onclick=function(){
+                var array=[];
+                for(var i=0;i<select.children.length;i++){
+                    var option=select.children[i];
+                    if(option.selected){
+                        array.push(option);
+                    }
+                }
+                for(var i=0;i<array.length;i++){
+                    var option=array[i];
+                    if(option.selected){
+                        all.appendChild(option);
+                        option.selected=false;
+                    }
+                }
+            }
+    </script>
+</body>
+
+</html>

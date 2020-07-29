@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>伪类选择器</title>
+    <style>
+    a:link{
+        font-size: 30px;
+        color: gray;
+    }
+    a:visited{
+        font-size: 40px;
+        color:orange;
+    }
+    a:hover{
+        font-size: 50px;
+        color: green;
+    }
+    a:active{
+        font-size: 60px;
+        color: red;
+    }
+    /* li:first-child{   第一个
+        color:red;
+    }
+    li:last-child{      最后一个
+        color: purple;
+    }
+    li:nth-child(3){    指定的某一个
+        color: skyblue;
+    } */
+
+    li:nth-child(even){         /*even所有的偶数 odd 所有的奇数  公式  n则是从0到最后所有数据选择 2n也是所有的偶数 2n-1则是奇数 n为倍数*/
+        color: red;
+    }
+
+    /* nth-last-child是从最后向上数 */
+
+    :target{
+        color: red;       /*选中哪个目标哪个目标做出响应*/
+    }
+    </style>
+</head>
+<body>
+    <h2>链接伪类选择器</h2>
+     <!-- 分四种状态 :link 未访问的链接 :visited  已访问的链接 :hover 鼠标移动到链接上  active 选定的链接 -->
+     <div><a href="#">选我</a></div>
+     <h2>结构伪类选择器(CSS3特性)</h2>
+     <ul>
+         <li>第一个人</li>
+         <li>第二个人</li>
+         <li>第三个人</li>
+         <li>第四个人</li>
+         <li>第五个人</li>
+         <li>第六个人</li>
+         <li>第七个人</li>
+     </ul>
+     <h3>目标伪类选择器</h3>
+     <a href="#china">中国</a><br />
+     <a href="#us">美国</a><br />
+     <a href="#japen">日本</a><br />
+     <a href="#taiwan">台湾</a><br />
+     <a href="#honkang">香港</a><br />
+
+     <h4 id="china">中国</h4>
+     <hr />
+     <p>中华人民共和国（People's Republic of China），简称“中国”，成立于1949年10月1日 [1]  ，位于亚洲东部，太平洋西岸 [2]  ，是工人阶级领导的、以工农联盟为基础的人民民主专政的社会主义国家 [3]  ，以五星红旗为国旗 [4]  、《义勇军进行曲》为国歌 [5]  ，国徽内容为国旗、天安门、齿轮和麦稻穗 [6]  ，通用语言文字是普通话和规范汉字 [7]  ，首都北京 [8]  ，是一个以汉族为主体、56个民族共同组成的统一的多民族国家。</p>
+     <h4 id="us">美国</h4>
+     <hr />
+     <p>美利坚合众国（英语：United States of America），简称“美国”（United States），是由华盛顿哥伦比亚特区、50个州和关岛等众多海外领土组成的联邦共和立宪制国家。其主体部分位于北美洲中部，美国中央情报局《世界概况》1989年至1996年初始版美国总面积是937.3万平方公里，人口3.3亿 [1]  ，通用英语，是一个移民国家。 [</p>
+     <h4 id="japen">日本</h4>
+     <hr />
+     <p>日本国（日语：にっぽんこく、にほんこく；英语：Japan），简称“日本”，位于东亚、国名意为“日出之国”，领土由北海道、本州、四国、九州四个大岛及6800多个小岛组成，总面积37.8万平方公里。主体民族为大和族，通用日语，总人口约1.26亿。日本三大都市圈是东京都市圈、大阪都市圈和名古屋都市圈</p>
+     <h4 id="taiwan">台湾</h4>
+     <hr />
+     <p>台湾（Taiwan），简称“台”，是中华人民共和国省级行政区 [1]  ，省会台北，位于中国大陆东南海域 [1]  ，东临太平洋，西隔台湾海峡与福建省相望，南界巴士海峡与菲律宾群岛相对。 [2]  台湾省由中国第一大岛台湾岛和周围属岛以及澎湖列岛两大岛群，共80余个岛屿所组成，总面积3.6万平方公里。 [2-3]  台湾省人口约2350万，超过70%集中在台湾岛西部的5大都会区，其中以台北市为中心的台北都会区最大。</p>
+     <h4 id="honkang">香港</h4>
+     <hr />
+     <p>香港（Hong Kong），简称“港”（HK），全称中华人民共和国香港特别行政区，位于中国南部、珠江口以东，西与中国澳门隔海相望，北与深圳市相邻，南临珠海市万山群岛，区域范围包括香港岛、九龙、新界和周围262个岛屿，陆地总面积1106.34平方公里，海域面积1648.69平方公里。截至2018年末，总人口约748.25万人，是世界上人口密度最高的地区之一，人均寿命全球第一。 </p>
+</body>
+</html>

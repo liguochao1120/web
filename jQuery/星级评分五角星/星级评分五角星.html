@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>星级评分五角星</title>
+    <style>
+        ul li {
+            list-style: none;
+            display: inline;
+            color: blue;
+        }
+    </style>
+    <!--☆ ★ -->
+    <script src="js/jquery-1.12.2.js"></script>
+    <script>
+        $(function() {
+            $("#comment>li").mouseover(function() {
+                $(this).text("★").prevAll().text("★").end().nextAll().text("☆");
+            }).mouseout(function() {
+                $("#comment").find("li").text("☆");
+                $("#comment>li[index=1]").text("★").prevAll("li").text("★")
+            }).click(function() {
+                $(this).attr("index", "1").siblings("li").removeAttr("index");
+            });
+        })
+    </script>
+
+</head>
+
+<body>
+
+    <ul id="comment">
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+        <li>☆</li>
+    </ul>
+</body>
+
+</html>

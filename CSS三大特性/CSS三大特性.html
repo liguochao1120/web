@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS三大特性</title>
+    <style>
+        div {
+            color: red;
+        }
+
+        div {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>层叠性</h1>
+    <div>层叠性</div>
+    理解:长江后浪推前浪，前浪死在沙滩上
+    <h1>继承性</h1>
+    <div>继承性</div>
+    理解:龙生龙，凤生凤，老鼠的孩子会打洞
+    <h1>优先级</h1>
+    <h3>特殊性 Specificity</h3>
+    从左往右，左边最高<br />
+    标签选择器(0,0,0,1)<br />
+    类选择器(0,0,1,0)<br />
+    伪类选择器(0,0,1,0) <br />
+    id选择器(0,1,0,0)<br />
+    行内样式表(1,0,0,0)<br />
+    无穷大div{ color:red !imporment}
+    <h1>权重叠加</h1>
+    <h1>继承的权重为0</h1>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body{
+        perspective: 500px;  /*视矩 */
+    }
+    img{
+            display: block;
+            margin:100px auto;
+            transition: all 5s;
+           
+    }
+    img:hover{
+        transform: rotateY(360deg);
+    }
+    h2{
+        transform: translate3d(0,50px,0);
+        transition: all 0.8s;
+        display: inline-block;
+    }
+    h2:hover{
+        transform: translate3d(0,0,0);
+    }
+    </style>
+</head>
+<body>
+    <img src="images/1498446043198.png" width="300" alt="">
+    <h2>测试Tranlate3d效果</h2>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖放</title>
+    <style>
+        p {
+            width: 100px;
+            height: 30px;
+            background-color: pink;
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+            margin: 5px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <p id="p1" draggable="true">拖拽内容</p>
+        <p id="p2" draggable="true">拖拽内容2</p>
+        <p id="p3" draggable="true">拖拽内容3</p>
+        <p id="p4" draggable="true">拖拽内容4</p>
+    </div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <script>
+        //完整的拖拽+释放
+        //1，我们有很多盒子,哪个需要拖放,就给这个盒子设置 可拖放效果 
+        //2,找到源文件,设置拖拽效果
+        //(1) ondragstart:源对象开始拖动
+        // var p = document.querySelector("#p1"); 事件委托,把p委托给它的顶层父亲 body文档  document
+        // var obj = null;
+        document.ondragstart = function(e) {
+            console.log("源对象开始拖动");
+            // e.target 目标事件
+            obj = e.target;
+            //event.dataTransfer.setData("类型","数据");代替全局变量obj
+            //类型 text/html  url
+            event.dataTransfer.setData("text/html", e.target.id);
+        }
+        document.ondrag = function() {
+            console.log("源对象拖动过程中");
+        }
+        document.ondragend = function() {
+                console.log("源对象拖动结束");
+            }
+            //3 找到目标文件,设置释放效果
+            // var target = document.querySelector("#div2");
+            // (1)ondragenter :目标对象被源对象拖动着进入
+        document.ondragenter = function() {
+                console.log("目标对象被源对象拖动着进入");
+            }
+            //(2)ondragover:目标对象被源对象拖动着悬停在上方
+        document.ondragover = function(e) {
+                console.log("目标对象被源对象拖动着悬停在上方");
+                //如果想要触发ondrop事件,则需要在over里面阻止 默认行为
+                return false;
+                // e.preventDefault();
+
+            }
+            //(3)ondragleave:源对象拖动着离开了目标对象
+        document.ondragleave = function() {
+                console.log("源对象拖动着离开了目标对象");
+
+            }
+            //(4)ondrop:源对象拖动着在目标对象上方释放/松手
+        document.ondrop = function(e) {
+            console.log("源对象拖动着在目标对象上方释放");
+            //在目标对象上把源对象添加到 当前对象中即可
+            // e.target.appendChild(obj);
+            //获取 dataTransfer里面的数据 获取到 存储进去的id
+            var id = e.dataTransfer.getData("text/html");
+            e.target.appendChild(document.getElementById(id)); //通过id获取到 元素添加进去
+
+        }
+    </script>
+</body>
+
+</html>

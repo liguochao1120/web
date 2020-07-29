@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单案例</title>
+</head>
+
+<body>
+    <form action="">
+        <fieldset>
+            <legend>学生档案信息</legend>
+            <label>姓名:<input type="text" placeholder="请输入姓名" /></label><br /><br />
+            <label>手机号:<input type="tel" /></label><br /><br />
+            <label>邮箱:<input type="email" /></label><br /><br />
+            所属学院:<input type="text" list="xueyuan" placeholder="请输入学院名称 " />
+            <datalist id="xueyuan">
+                <option>
+                    家里蹲1
+                </option>
+                <option>
+                    家里蹲2
+                </option>
+                <option>
+                    家里蹲3
+                </option>
+                <option>
+                    家里蹲4
+                </option>
+                <option>
+                    家里蹲5
+                </option>
+                <option>
+                    家里蹲6
+                </option>
+            </datalist><br /><br />
+            出生日期:<input type="date" /><br /><br />
+            成绩:<input type="number" /><br /><br />
+            毕业时间:<input type="date" /><br /><br />
+            <input type="submit" />
+            <input type="reset" />
+
+            
+        </fieldset>
+       
+    </form>
+</body>
+
+</html>

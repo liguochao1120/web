@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Css复合选择器</title>
+    <style>
+        .nva ul li {
+            color: red;
+        }
+
+        ul li {
+            color: #0f0;
+        }
+
+        .item>li {
+            color: #00f;
+        }
+
+        div[class^=font] {/*class^=font 表示以font开始位置的数据 */
+            color: firebrick;
+        }
+
+        div[class$=aa] {    /*class$=aaa 表示以aaa结束位置的数据 */
+            color: blue;
+        }
+        div[class*=vsi]     {/*class*=vsi 表示数据中包括vsi数据的值 */
+            color: green;
+        }
+        p::first-letter{
+            color: red; /*伪元素选择器  表示选择第一个字*/
+            font-size: 30px;
+        }
+        p::first-line{ /*伪元素选择器， 表示选择第一行字*/
+            color: skyblue;
+        }
+        p::selection{ /*当选择文字时显示的样式*/
+            color:springgreen;
+        }
+        span::before{
+            content: "我来";
+        }
+        span::after{
+            content:"了";
+        }
+    </style>
+</head>
+
+<body>
+    <h1>交集选择器</h1>
+    标签名.类名{}
+    <h1>并集选择器</h1>
+    标签1,标签2,标签3，.类名｛｝ 各个标签之间要使用逗号分隔
+    <h1>后代选择器</h1>
+    <div class="nva">
+        <ul>
+            <li>首页</li>
+            <li>导航</li>
+            <li>联系</li>
+        </ul>
+    </div>
+    <ul>
+        <li>百度</li>
+        <li>新浪</li>
+        <li>搜狐</li>
+    </ul>
+    标签1 标签2 标签3｛｝ <br />
+    .类名 标签1 标签2 标签3｛｝ 各个 标签之间使用空格隔开
+    <h1>子元素选择器</h1>
+    <ul class="item">
+        <li>一级菜单
+            <ul>
+                <li>二级菜单一</li>
+                <li>二级菜单二</li>
+            </ul>
+        </li>
+    </ul>
+    子元素选择器只针对于标签后的第一个子元素，亲儿子
+    .类名>标签｛｝
+    <h1>属性选择器</h1>
+    属性选择器用中括号来表示 例:标签名[属性名] 标签名[属性名=值]
+    <div class="font1">123</div>
+    <!--class^=font 表示以font开始位置的数据-->
+    <div class="font2">123</div>
+    <div class="font3">123</div>
+    <div class="123-aaa">123aaa</div>
+    <!--class$=aaa 表示以aaa结束位置的数据-->
+    <div class="456-aaa">123aaa</div>
+    <div class="456-aaa--vsi">vsi</div>
+    <div class="vsi-aaa">统一10.1</div>
+    <div class="vsi-aaa--vsi-qq">UPUI</div>
+    <!--class*=vsi 表示数据中包括vsi数据的值 -->
+    class^=font 表示 font开始位置就行了
+
+    <h1>伪元素选择器</h1>
+    标签 属性名::{} 双冒号
+    <p>唐诗三百首是一部流传很广的唐诗选集。唐朝（618年~907年）二百八十九年间，是中国诗歌发展的黄金时代，云蒸霞蔚，名家辈出，唐诗数量多达五万余首。故事：文学体裁的一种，侧重于事件发展过程的描述。强调情节的生动性和连贯性，较适于口头讲述。已经发生事。或者想象故事。故事一般都和原始人类的生产生活有密切关系，他们迫切地希望认识自然，于是便以自身为依据，想象天地万物都像人一样，有着生命和意志。</p>
+
+    <span>测试before和after属性</span>
+
+</body>
+
+</html>

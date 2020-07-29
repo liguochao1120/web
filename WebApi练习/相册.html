@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>相册</title>
+</head>
+<body>
+    
+    <div id="imagegallery">
+            <a href="images/1.jpg" title="美女a">
+            <img src="images/1-small.jpg" width="100" alt="美女1"></a>
+
+            <a href="images/2.jpg" title="美女b">
+                <img src="images/2-small.jpg" width="100" alt="美女2"></a>
+
+                <a href="images/3.jpg" title="美女c">
+                    <img src="images/3-small.jpg" width="100" alt="美女3"></a>
+
+                    <a href="images/4.jpg" title="美女d">
+                        <img src="images/4-small.jpg" width="100" alt="美女4"></a>
+
+    </div>
+    <div style="clear:both"></div>
+    <img src="images/placeholder.png" id="image" width="450" alt="">
+    <p id="des">请选择一个图片</p>
+    &lt;b&gt;
+</body>
+
+<script>
+   var imagegallery= document.getElementById('imagegallery');
+   var links=imagegallery.getElementsByTagName('a');
+    for(var i=0;i<links.length;i++){
+            var link=links[i];
+            link.onclick=function(){
+                var image=document.getElementById('image');
+                image.src=this.href;
+               
+                var des=document.getElementById('des');
+                des.innerText=this.title;
+                return false;
+            }
+    }
+</script>
+</html>

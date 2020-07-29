@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>创建元素</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: blue;
+        }
+    </style>
+    <script src="js/jquery-1.12.2.js"></script>
+    <script>
+        //需求:点击 按钮，在div中创建一个超链接
+        $(function() {
+            var i = 0;
+            $("#btn1").click(function() {
+                i++;
+                //第一种创建元素的方式
+                // var obj = $("<a href='http://www.baidu.com'>百度" + i + "</a>");
+                //第二种创建元素的方式
+                // $("#dv").html("<p>这是一个p标签</p>");
+                $("#dv").append(obj); //把超链接追加到div中
+
+                //把元素插入到某个元素前面
+                $("#dv").prepend(obj);
+                //把当前元素添加到当前元素的后面
+                $("#dv").after(obj);
+                //把当前元素添加到当前元素的前面
+                $("#dv").before(obj);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="button" value="创建元素方式一" id="btn1">
+    <div id="dv"></div>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11v-for循环对象</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+
+    </style>
+</head>
+<div id="app">
+    <p v-for="(val,key) in user">---key:{{user.key}}--------值：{{user.val}}}</p>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            user: {
+                id: 1,
+                name: '小明',
+                gender: '男'
+            }
+        },
+        methods: {},
+    });
+</script>
+
+<body>
+
+</body>
+
+</html>

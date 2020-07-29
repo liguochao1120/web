@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 适应移动端视口，content="":进行viewport设置,这个属性只有在移动端才有效  
+         width:设置viewport的宽度,device-width:获取当前设置的宽度 initial-scale=1.0:设置初始的绽放比例 <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 快捷键 meta:vp+tab  user-scalable=no 不可缩放-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>获取物理像素</title>
+</head>
+
+<body>
+    <script>
+        //获取屏幕的物理含像素尺寸 ideal viewport
+        console.log(window.screen.width);
+        console.log(window.screen.height);
+        //获取视口的大小 默认 layout viewport
+        console.log(document.documentElement.clientWidth);
+        console.log(document.documentElement.clientHeight);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>网络状态监听</title>
+    <style>
+        .tips {
+            height: 200px;
+            width: 500px;
+            background-color: blue;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+    <p class="tips"></p>
+    <script src="js/jquery.min.js"></script>
+    <script>
+        // $(function() {
+        //window.navigator.online 以前的用法,返回值为boolean 值 
+        $('.tips').text('网络连接状态');
+        //网络连接时
+        window.addEventListener('online', function(e) {
+            console.log("data1:" + e);
+            alert("网络succ:");
+            $('.tips').text('网络连接正常').fadeIn(500).delay(1000).fadeOut();
+        });
+        // 网络断开时
+        window.addEventListener('offline', function(e) {
+            console.log("data2:" + e);
+            alert("网络fail");
+            $('.tips').text('网络已断开').fadeIn(500).delay(1000).fadeOut();
+        });
+    </script>
+    <script>
+        //     干货4种网页检测 移动网络
+        // 1、 不好用
+        document.addEventListener("netchange", function() {
+            var nt = plus.networkinfo.getCurrentType();
+            switch (nt) {
+                case plus.networkinfo.CONNECTION_ETHERNET:
+                case plus.networkinfo.CONNECTION_WIFI:
+                    console.log("wifi");
+                    break;
+                case plus.networkinfo.CONNECTION_CELL2G:
+                case plus.networkinfo.CONNECTION_CELL3G:
+                case plus.networkinfo.CONNECTION_CELL4G:
+                    console.log("4g");
+                    break;
+                default:
+                    console.log("无网络");
+                    break;
+            }
+        });
+        // 2、 网络切换 有响应  好用  --推荐
+        var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        var type = connection.type;
+
+        function updateConnectionStatus() {
+            alert("网络由 " + type + " 变化为 " + connection.type);
+        }
+        //监听网络类型发生变化
+        connection.addEventListener('typechange', updateConnectionStatus);
+
+        // 3.在线离线， 不好用
+        window.addEventListener("offline", function(e) {
+            console.log("暂无网络连接" + e);
+        });
+        window.addEventListener("online", function(e) {
+            console.log("xxxxxx" + e);
+        });
+
+        // 4.方法好用，不做切换好用
+        function getNetworkType() {
+            var ua = navigator.userAgent;
+            var networkStr = ua.match(/NetType\/\w+/) ? ua.match(/NetType\/\w+/)[0] : 'NetType/other';
+            networkStr = networkStr.toLowerCase().replace('nettype/', '');
+            var networkType;
+            switch (networkStr) {
+                case 'wifi':
+                    networkType = 'wifi';
+                    break;
+                case '4g':
+                    networkType = '4g';
+                    break;
+                case '3g':
+                    networkType = '3g';
+                    break;
+                case '3gnet':
+                    networkType = '3g';
+                    break;
+                case '2g':
+                    networkType = '2g';
+                    break;
+                default:
+                    networkType = 'other';
+            }
+            console.log("当前网络格式：" + networkStr);
+        } <
+        /body>
+
+
+        <
+        /html>

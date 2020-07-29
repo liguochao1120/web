@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <style>
+       div{
+           width: 310px;
+           height: 190px;
+           margin: 50px auto;
+           padding: 10px;
+           border:1px solid #ccc;
+           position: relative;    /*父标签使用 相对定位     子绝父相*/
+       }
+       .topIcon{
+            position:absolute;   /*子标签使用 绝对定位 */
+           top: 0px;
+           left: 0px;
+       }
+       .bottomIcon{
+           position: absolute;
+           right: 0px;
+           bottom: 0px;
+       }
+       
+   
+   </style>
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <img src="images/adv.jpg" alt="">
+        <img src="images/top_tu.gif" alt="" class="topIcon">
+        <img src="images/br.gif" alt="" class="bottomIcon">
+       
+        
+
+
+
+    </div>
+</body>
+</html>

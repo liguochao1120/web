@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>搜索文本框</title>
+    <style>
+        .gray{
+            color:gray;
+        }
+        .blue{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="请输入要搜索的关键字" id="textSearch">
+    <input type="button" value="搜索" id="btnSearch">
+    <script>
+        var textSearch=document.getElementById('textSearch');
+        //文本框得到焦点时的事件
+        textSearch.onfocus=function(){
+            if(this.value==='请输入要搜索的关键字'){
+                this.value='';
+                this.className='blue';
+            }
+        }
+        //文本框失去焦点时的事件
+        textSearch.onblur=function(){
+            if(this.value.length===0){
+                this.value='请输入要搜索的关键字';
+                this.className='gray';
+            }
+        }
+    </script>
+</body>
+</html>

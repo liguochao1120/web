@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>本地存储</title>
+</head>
+
+<body>
+    <input type="text" name="" id="username"> <br>
+    <button id="setData">设置数据</button>
+    <button id="getData">获取数据</button>
+    <button id="delData">删除数据</button>
+    <!-- sessionStorage 存储于当前页面，关闭丢失
+    localStorage 用的多 永久存储，除非手动删除 -->
+    <script>
+        var usename = document.querySelector("#username");
+        //设置数据
+        document.querySelector("#setData").onclick = function() {
+                var val = usename.value;
+                //存储数据window.sessionStorage.setItem("key", "value");
+                window.sessionStorage.setItem("username", val);
+            }
+            //获取数据
+        document.querySelector("#getData").onclick = function() {
+                //获取数据window.sessionStorage.getItem("key", "value");
+                alert(window.sessionStorage.getItem("username"));
+            }
+            //删除数据
+        document.querySelector("#delData").onclick = function() {
+            //删除数据window.sessionStorage.removeItem("key", "value");
+            alert(window.sessionStorage.removeItem("username")); //删除单个
+            window.sessionStorage.clear(); //删除所有 慎用
+        }
+    </script>
+</body>
+
+</html>

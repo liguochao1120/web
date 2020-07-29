@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>文件读取</title>
+    <style>
+        #info {
+            width: 1000px;
+            height: 500px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="file" name="" id="file" multiple>
+    <!-- <div id="info"></div> -->
+    <img src="" alt="" id="img1">
+
+    <script>
+        var file = document.querySelector("#file");
+        // var div = document.querySelector("#info");
+        var img = document.querySelector("#img1");
+        //1,通过文件域先上传上来，2，监听文件改变事件,3,然后通过 this.files拿到上传的文件，一个数组 4,然后创建文件读取对象, 读取文件,onload加载事件
+        //监听改变事件
+        file.onchange = function() {
+            //this.files
+            var reader = new FileReader();
+            // reader.readAsText(this.files[0]); //readAsText()读取文本   readAsDataURL()读取图片
+            reader.readAsDataURL(this.files[0]);
+            //文件读写完成后调用onload事件
+            reader.onload = function() {
+                img.src = this.result;
+            }
+        }
+    </script>
+</body>
+
+</html>

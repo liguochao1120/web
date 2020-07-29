@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h3>播放网络视频</h3>
+        <iframe height=498 width=510 src='http://player.youku.com/embed/XNDMxMjMzNzAzMg=='
+            frameborder=0 'allowfullscreen'></iframe>
+        <!--播放网络视频 -->
+        <h3>播放音频</h3>
+        <!--<audio src="love.mp3" autoplay controls loop="-1"></audio> autoplay 自动播放 controls显示播放按钮 loop循环次数-1为无限循环-->
+        <h5>为了兼容浏览器，我们需要做三种声音文件的格式  ogg mp3 wav</h5>
+        <audio autoplay controls>
+            <source src="love.mp3"/>
+            <!-- <source src="love.ogg"/> -->
+        </audio>
+        <h3>视频播放</h3>
+        <!-- <video src="baidu.mp4" autoplay controls loop="-1"></video> -->
+        <video autoplay controls>
+            <source src="baidu.mp4" />
+            <!-- <source src="baidu.mp5" /> -->
+        </video>
+    </body>
+</html>

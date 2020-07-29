@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+             perspective: 2000px; /*加透视效果 */
+        }
+        section{
+            width: 400px;
+            height: 300px;
+            background: url(images/nav7.jpg) no-repeat;
+            background-size: cover;
+            margin: 100px auto;
+             position: relative; /*子绝父相 */
+               transform-style: preserve-3d; /*让其子盒子添加3D效果 */
+               transition: all 5s linear;  /*linear匀速旋转 */
+        }
+        section:hover{
+            transform: rotateY(360deg);
+        }
+        section div{
+            height: 100%;
+            width: 100%;
+            background:url(images/1.jpg) no-repeat;
+            background-size: cover;
+             position: absolute; /*绝对定位 */
+            left: 0;
+            top: 0;
+        }
+        section div:nth-child(1){
+             transform: rotateY(0deg) translateZ(400px); /*rotateY按Y铀旋转，translateZ按Z铀延伸距离 */
+        }
+        section div:nth-child(2){
+            transform: rotateY(60deg) translateZ(400px);
+        }
+        section div:nth-child(3){
+            transform: rotateY(120deg) translateZ(400px);
+        }
+        section div:nth-child(4){
+            transform: rotateY(180deg) translateZ(400px);
+        }
+        section div:nth-child(5){
+            transform: rotateY(240deg) translateZ(400px);
+        }
+
+        section div:nth-child(6){
+            transform: rotateY(300deg) translateZ(400px);
+        }
+    </style>
+   
+</head>
+<body>
+    <section>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+    </section>
+</body>
+</html>

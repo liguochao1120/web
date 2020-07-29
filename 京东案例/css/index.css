@@ -1,0 +1,295 @@
+/* 中心分类模块 */
+
+.grid {
+    height: 480px;
+}
+
+.grid-col1 {
+    width: 190px;
+    height: 100%;
+    background-color: #6e6568;
+    color: #fff;
+    /* 颜色和字体不是给文字的，而是给反斜杠的 */
+    font-size: 14px;
+    position: relative;
+}
+
+.ad {
+    width: 250px;
+    height: 480px;
+    position: absolute;
+    left: -250px;
+    top: 0;
+}
+
+.ad-r {
+    position: absolute;
+    top: 0;
+    left: 250px;
+    z-index: 999;
+    width: 0;
+    transition: all 0.3s;
+    height: 480px;
+}
+
+.ad:hover .ad-r {
+    /* 鼠标经过 ad 这个广告大盒子的时候 ，里面的这个叫 ad-r的图片的宽度变大 */
+    width: 990px;
+}
+
+.grid-col1 ul {
+    padding: 15px 0;
+}
+
+.grid-col1 ul li {
+    padding-left: 12px;
+    height: 26px;
+    line-height: 26px;
+}
+
+.grid-col1 ul li:hover {
+    background-color: #969c98;
+}
+
+.grid-col1 a {
+    color: #fff;
+    font-size: 14px;
+    margin: 0 3px;
+}
+
+.grid-col1 a:hover {
+    color: #f10215;
+}
+
+.grid-col2 {
+    width: 790px;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.grid-col3 {
+    width: 190px;
+    height: 100%;
+}
+
+
+/* banner 部分 */
+
+.grid-col2-b div {
+    float: left;
+    margin-top: 10px;
+}
+
+.grid-col2-b div:last-child {
+    float: right;
+}
+
+.grid-col2-t {
+    position: relative;
+}
+
+.arrow-l,
+.arrow-r {
+    height: 60px;
+    width: 30px;
+    position: absolute;
+    background: rgba(0, 0, 0, .3);
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    line-height: 60px;
+    font-size: 20px;
+    color: #fff;
+    font-family: Arial;
+    font-weight: normal;
+}
+
+.arrow-l {
+    left: 0;
+}
+
+.arrow-r {
+    right: 0;
+}
+
+.circle {
+    width: 170px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    background: rgba(255, 255, 255, .6);
+    border-radius: 10px;
+    padding-left: 5px;
+    box-sizing: border-box;
+}
+
+.circle li {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+    float: left;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.circle .current {
+    background-color: #f10215;
+}
+
+
+/* 右侧模块 */
+
+.login {
+    height: 85px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    padding: 15px;
+}
+
+.login-t {
+    width: 90px;
+    font-size: 12px;
+    white-space: nowrap;
+    /*强制一行显示  */
+    overflow: hidden;
+    /*溢出部分隐藏 */
+    text-overflow: ellipsis;
+    /*多出部分以省略号显示 */
+    color: #666;
+    padding-left: 60px;
+    height: 60px;
+    line-height: 20px;
+    position: relative;
+}
+
+.login-t a {
+    color: #666;
+}
+
+.login-t a:hover {
+    color: #f10215;
+}
+
+.news {
+    height: 154px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    padding: 7px 13px 0;
+    box-sizing: border-box;
+}
+
+.news-t {
+    height: 19px;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.news-t a {
+    float: left;
+    height: 17px;
+    line-height: 17px;
+}
+
+.cuxiao {
+    width: 38px;
+    border-right: 1px solid #ccc;
+}
+
+.gonggao {
+    margin-left: 15px;
+}
+
+.news-t .more {
+    float: right;
+}
+
+.news-t div {
+    height: 2px;
+    width: 28px;
+    background-color: #f10215;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+.news-b {
+    padding-top: 15px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.news-b ul li {
+    height: 23px;
+    line-height: 23px;
+}
+
+.user-info {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    overflow: hidden;
+    background: url(../images/sprite_userinfo@1x.png) no-repeat -70px 0;
+}
+
+.user-info img {
+    width: 40px;
+    border-radius: 50%;
+    margin: 5px;
+}
+
+.login-b a {
+    display: inline-block;
+    width: 70px;
+    height: 20px;
+    color: #f10215;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 3px;
+    border: 2px solid #f10215;
+    float: left;
+}
+
+.login-b a:hover {
+    background-color: #f10215;
+    color: #fff;
+}
+
+.expand {
+    height: 208px;
+    background-color: #fff;
+    overflow: hidden;
+    /*expand 这个宽度继承了 父亲 190宽度 */
+}
+
+.expand ul {
+    width: 195px;
+    /*父亲是190 但是里面的li 宽度超过了190 摆放不开 4个li此时 让ul宽度变大 */
+}
+
+.expand li {
+    width: 47px;
+    height: 69px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    text-align: center;
+    line-height: 69px;
+}
+
+.super {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}

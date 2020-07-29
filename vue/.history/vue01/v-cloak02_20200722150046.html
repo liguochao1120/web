@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-cloak指令</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+    <!-- 
+        三个指令:v-cloak:使用v-cloak能够解决插值表达式闪烁的问题 (有网络加载延迟效果显示)
+                v-text:1,默认, v-text 是没能闪烁问题的;2,v-text会覆盖元素中原本的内容,但是插值表达式,只会替换自己的占位符,不会把整个的内容清空
+                v-html:可以直接解析数据中的html标签
+                v-bind:是vue中,提供的用于属性绑定的指令  在使用中 v-bind 等同于 :
+     -->
+</head>
+
+<body>
+    <div id="app">
+        <!-- 使用v-cloak能够解决插值表达式闪烁的问题 -->
+        <p v-cloak>{{msg}}</p>
+        <h2 v-text="msg"></h2>
+        <div v-html="msg2"></div>
+        <button v-bind:title="myTitle+'123'">按钮</button>
+    </div>
+
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '123',
+                msg2: '<h1>我是一个大标题</h1>',
+                myTitle: '这是我自定义的标题',
+            }
+        });
+    </script>
+</body>
+
+</html>

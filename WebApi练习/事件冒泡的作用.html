@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件冒泡的作用</title>
+    <style>
+        ul{
+            list-style: none;       
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul">
+        <li>李</li>
+        <li>国</li>
+        <li>超</li>
+        <li>王</li>
+    </ul>
+    <script>
+        //事件委托: 原理事件冒泡
+        var ul=document.getElementById('ul');
+        ul.onclick=function(e){
+            //e  事件参数(事件对象):当事件发生的时候,可以获取一些和事件相关的数据
+            //e.target是真正触发事件的对象
+            e.target.style.backgroundColor='red';
+        }
+    </script>
+    
+</body>
+</html>

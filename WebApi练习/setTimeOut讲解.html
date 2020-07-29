@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>setTimeOut讲解</title>
+</head>
+<body>
+    <input type="button" value="开始" id="start">
+    <input type="button" value='结束' id="end">
+
+    <script>
+        var startId;
+        var start=document.getElementById('start');
+        start.onclick=function(){
+            //开始定时器的执行 setTimeOut有两个参数，第一个为执行的函数，第二个为等待的时间
+            startId= setTimeout(function(){
+                    alert('执行了');
+            },3000);
+        }
+
+        var end=document.getElementById('end');
+        end.onclick=function(){
+            //取消定时器的执行
+            clearTimeout(startId);
+        }
+    </script>
+</body>
+</html>

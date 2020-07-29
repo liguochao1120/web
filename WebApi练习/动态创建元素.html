@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态创建元素</title>
+</head>
+<body>
+   
+    <!-- <input type="button" value="点击动态生成元素" id="btn"> -->
+    <div id="box">111</div>
+    <script>
+//    document.write();
+//     element.innerHTML;
+//     document.create();
+    // var btn=document.getElementById('btn');
+    // 方式二
+    // var datas=['赵','旭','涛'];
+    // btn.onclick=function(){
+    //     var box=document.getElementById('box');
+    //     var array=[];
+    //     array.push('<ul>');
+      
+    //     for(var i=0;i<datas.length;i++){
+    //         var data=datas[i];
+    //         array.push('<li>'+data+'</li>');
+    //     }
+    //    array.push('</ul>');
+    //     box.innerHTML=array.join('');
+    // }
+    //方式三 优先使用
+    //在内存中创建了一个DOM对象
+    var p=document.createElement('p');
+    //设置对象的属性
+    p.innerText='hello';
+    p.style.color='red';
+    var box=document.getElementById('box');
+    box.appendChild(p);
+    console.log(p);
+    </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>块级元素标签block-level</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            display: inline;
+            /*块级标签转换为行内标签模式*/
+        }
+
+        span {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            display: block;
+            /*行内标签转换为块级标签模式*/
+        }
+
+        a {
+            width: 100px;
+            height: 60px;
+            background-color: deeppink;
+            display: inline-block;
+            /*行内标签模式转换为行内块标签模式 */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>块级元素标签block-level</h1>
+    <hr />
+    <div>第一个div</div>
+    <div>第二个div</div>
+    <div>第三个div</div>
+    <h3>块级元素标签有四点特性:</h3>
+    <ol>
+        <li>每个块级元素总是从新行开始</li>
+        <li>高度，行高、外边柜和内边柜都可以控制</li>
+        <li>宽度默认是容器的100%</li>
+        <li>可以容纳内联元素和其他元素</li>
+    </ol>
+
+    <h1>行内元素标签 inline-level</h1>
+    <h3>行内元素标签有四点特性:</h3>
+    <span>第一个span</span>
+    <ol>
+        <li>和相邻元素在同一行上</li>
+        <li>高、宽无效，但水平方向padding和margin可以设置，垂直方向的无效</li>
+        <li>默认宽度就是它本身内容的宽度</li>
+        <li>行内元素只能容纳文本或它行内元素</li>
+    </ol>
+
+    <h1>行内块元素 inline-block</h1>
+    例:img input td <br />
+    <h3>行内块元素特性:</h3>
+    <ol>
+        <li>和相邻内元素(行内块)在一行上，但是之间会有空白缝隙</li>
+        <li>默认宽度就是它本身内容的宽度</li>
+        <li>高度，行高、外边柜和内边柜都可以控制</li>
+    </ol>
+    <h1>显示模式转换 display</h1>
+    <div>123</div>
+    <div>456</div>
+    <div>789</div>
+    <span>abc</span>
+    <span>efg</span>
+    <span>hij</span>
+    <a href="#">123</a><a href="#">123</a>
+</body>
+
+</html>
