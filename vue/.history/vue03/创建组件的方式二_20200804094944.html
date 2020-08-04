@@ -11,24 +11,15 @@
 
 <body>
     <div id="app">
-
-
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
+        <my-com2></my-com2>
     </div>
 
     <script>
+        //创建组件方式2
+        Vue.component("myCom2", {
+            template: "<h3>这是使用Vue.compoment直接创建的组件</h3>"
+        });
+
         //创建Vue实例,得到 ViewModel
         var vm = new Vue({
             el: '#app',

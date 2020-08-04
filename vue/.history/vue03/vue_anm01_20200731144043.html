@@ -5,34 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>动画</title>
     <script src="./lib/vue-2.4.0.js"></script>
+    <script src="./lib/vue-resource-1.3.4.js"></script>
 </head>
 
 <body>
     <div id="app">
-
-
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
+        <input type="button" value="toggle" @click='flag=!flag'>
+        <h3 v-show="flag">{{msg}}</h3>
     </div>
 
     <script>
         //创建Vue实例,得到 ViewModel
         var vm = new Vue({
             el: '#app',
-            data: {},
+            data: {
+                msg: '这是一个h3标签',
+                flag: false,
+            },
             methods: {}
         });
     </script>

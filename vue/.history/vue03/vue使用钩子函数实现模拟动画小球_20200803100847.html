@@ -7,32 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        .ball {
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
 </head>
 
 <body>
     <div id="app">
-
-
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
+        <input type="button" value="切换" @click='flag=!flag'>
+        <transition @before-enter="" @enter="" @after-enter=''>
+            <div class="ball" v-if='flag'></div>
+        </transition>
     </div>
 
     <script>
         //创建Vue实例,得到 ViewModel
         var vm = new Vue({
             el: '#app',
-            data: {},
+            data: {
+                flag: false,
+            },
             methods: {}
         });
     </script>

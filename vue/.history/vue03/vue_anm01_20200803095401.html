@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动画</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <script src="./lib/vue-resource-1.3.4.js"></script>
+    <!-- 2, 自定义两组样式,来控制 transition 内部的元素实现动画 -->
+    <style>
+        /* v-enter 【这是一个时间点】 是进入之前,元素的起始状态,此时还没有开始进入*/
+        /* v-enter-to 【这是一个时间点】 是动画离开之后,离开的终止状态,此时,元素 动画已经结束 */
+        /*  v-enter中的v可以自定义只需在transition中定义一个name="xxx"后面再使用时使用 .xxx-enter */
+        
+        .v-enter,
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(150px);
+        }
+        /* v-enter-active 【入场动画的时间段】 */
+        /* v-leave-active 【离场动画的时间段】*/
+        
+        .v-enter-active,
+        .v-leave-active {
+            transition: all 0.8s ease;
+        }
+        
+        .lgc-enter,
+        .lgc-leave-to {
+            opacity: 0;
+            transform: translateY(150px);
+        }
+        /* v-enter-active 【入场动画的时间段】 */
+        /* v-leave-active 【离场动画的时间段】*/
+        
+        .lgc-enter-active,
+        .lgc-leave-active {
+            transition: all 0.4s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 需求:点击 隐藏，再点击显示 -->
+        <!-- 1,使用 transition 元素,把 需要被动画控制的元素,包裹起来-->
+        <!-- transition元素,是Vue官方提供的 -->
+
+        <input type="button" value="toggle" @click='flag=!flag'>
+        <transition>
+            <h3 v-if="flag">{{msg}}</h3>
+        </transition>
+
+        <!-- 自定义指令标识符 -->
+        <input type="button" value="toggle2" @click='flag2=!flag2'>
+        <transition name='lgc'>
+            <h6 v-if="flag2">{{msg}}</h3>
+        </transition>
+
+    </div>
+
+    <script>
+        //创建Vue实例,得到 ViewModel
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '这是一个h3标签',
+                flag: false,
+                flag2: false,
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

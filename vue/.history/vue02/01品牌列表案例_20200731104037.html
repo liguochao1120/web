@@ -59,20 +59,12 @@
         </table>
     </div>
 
-
     <div id="app2">
         <!-- 调用时需要使用 "''" 双引号内嵌 单引号 -->
         <h3 v-color="'pink'" v-fontweight="700" v-fontsize="'70px'">{{dt |dateFormat}}</h3>
     </div>
 
     <script>
-        //设置根地址: 如果我们通过全局配置了,请求的数据接口 根域名,则,在每次单独发起 http 请求的时候,请求的
-        //Url路径,应该以相对路径开头,前面不能带/,否则不会启用要路径连接
-        Vue.http.options.root = 'http://vue.studyit.io/'
-
-        //全局启用 emulateJSON选项
-        Vue.http.option.emulateJSON = true;
-
         //定义一个全局日期过滤器
         Vue.filter('dateFormat', function(dateStr, pattern = '') {
             var dt = new Date(dateStr);
@@ -167,8 +159,10 @@
                     this.id = this.name = ""; */
 
                     //服务器方式
-                    this.$http.post('api/addproduct', {
+                    this.$http.post('http://vue.studyit.io/api/addproduct', {
                         name: this.name
+                    }, {
+                        emulate: true
                     }).then(result => {
                         if (result.body.status === 0) {
                             //添加成功,刷新商品列表 
@@ -203,15 +197,7 @@
                      this.list.splice(index, 1); */
 
 
-                    //服务器方式
-                    this.$http.get('api/delproduct/' + id).then(result => {
-                        if (result.body.status === 0) {
-                            //删除成功
-                            this.getAllData();
-                        } else {
-                            alert('删除失败');
-                        }
-                    })
+                    //服务器访式
 
                 },
                 search(keywords) { //根据关键字,进行数据搜索
@@ -240,7 +226,7 @@
                     // http://vue.studyit.io/api/getprodlist
                     //http://localhost/data/cartype.php
                     //http://api.test.gongjiangren.net/
-                    this.$http.get('api/getprodlist').then(result => {
+                    this.$http.get('http://api.test.gongjiangren.net').then(result => {
                         //使用http请求的数据都 在result.body中放着
                         var result = result.body;
                         console.log(result.code);

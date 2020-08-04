@@ -11,24 +11,22 @@
 
 <body>
     <div id="app">
-
-
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
+        <mycom3></mycom3>
     </div>
 
+    <template id="tmpl">
+        <div>
+            <h1>这是通过template元素,在外部定义的组件结构,这个方式,有代码的智能提示和高亮</h1>
+            <h4>好用,不错</h4>
+        </div>
+    </template>
+
     <script>
+        //创建组件的第三种方式
+        Vue.component('mycom3', {
+            template: '#tmpl'
+        });
+
         //创建Vue实例,得到 ViewModel
         var vm = new Vue({
             el: '#app',

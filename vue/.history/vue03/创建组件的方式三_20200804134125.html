@@ -10,25 +10,14 @@
 </head>
 
 <body>
-    <div id="app">
-
-
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
+    <div id="app"> </div>
 
     <script>
+        //创建组件的第三种方式
+        Vue.component('mycom3', {
+            template: ''
+        });
+
         //创建Vue实例,得到 ViewModel
         var vm = new Vue({
             el: '#app',

@@ -10,25 +10,15 @@
 </head>
 
 <body>
-    <div id="app">
-
-
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
-    </div>
+    <div id="app"> </div>
 
     <script>
+        //1.1 使用Vue.extend来创建全局的Vue组件 
+        var com1 = Vue.extend({
+            template: '<h3>这是使用Vue.extend创建的组件 </h3>'
+        })
+
+
         //创建Vue实例,得到 ViewModel
         var vm = new Vue({
             el: '#app',

@@ -169,6 +169,8 @@
                     //服务器方式
                     this.$http.post('api/addproduct', {
                         name: this.name
+                    }, {
+                        emulate: true
                     }).then(result => {
                         if (result.body.status === 0) {
                             //添加成功,刷新商品列表 

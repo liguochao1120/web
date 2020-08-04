@@ -5,27 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>vue-resource的基本使用</title>
     <script src="./lib/vue-2.4.0.js"></script>
+    <!-- vue-resource 依赖于vue,用于网络请求ajax -->
+    <script src="./lib/vue-resource-1.3.4.js"></script>
 </head>
 
 <body>
     <div id="app">
-
-
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
+        <input type="button" value="get请求" @click='getInfo'>
     </div>
 
     <script>
@@ -33,7 +21,11 @@
         var vm = new Vue({
             el: '#app',
             data: {},
-            methods: {}
+            methods: { //发起get请求
+                getInfo() {
+
+                },
+            },
         });
     </script>
 </body>

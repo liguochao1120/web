@@ -11,24 +11,16 @@
 
 <body>
     <div id="app">
-
-
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-
+        <my-com2></my-com2>
     </div>
 
     <script>
+        //注意:无论是哪种方式创建出来的组件,组件的template 属性指向的模板内容,必须 有且只能有唯一的根元素
+        //创建组件方式2
+        Vue.component("myCom2", {
+            template: "<h3>这是使用Vue.compoment直接创建的组件</h3>"
+        });
+
         //创建Vue实例,得到 ViewModel
         var vm = new Vue({
             el: '#app',
